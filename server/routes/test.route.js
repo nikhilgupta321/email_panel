@@ -155,7 +155,7 @@ const obj2=[
 
 ]
 
-router.get("/test", (req, res) => {
+router.get("/test1", (req, res) => {
   return res.status(200).json({
     success: "true",
     message: "test route working fine",

@@ -7,7 +7,7 @@ const MailLinksForm = () => {
       <div className="flex gap-4 p-4">
         <Link
           to="/email"
-          className="p-2 mb-4 text-center rounded w-16 bg-gray-400 text-white"
+          className="w-16 p-2 mb-4 text-center text-white bg-gray-400 rounded"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const MailLinksForm = () => {
         </Link>
         <button
           // onClick={handleSubmit}
-          className="p-2 mb-4 rounded w-24 bg-sky-600 text-gray-100"
+          className="w-24 p-2 mb-4 text-gray-100 rounded bg-sky-600"
         >
           Submit
         </button>

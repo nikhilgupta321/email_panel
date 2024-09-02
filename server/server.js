@@ -12,6 +12,7 @@ const AgentsRoutes = require('./routes/agents.route');
 const authrouter = require('./routes/auth.route');
 const helperrouter = require('./routes/helper.route');
 const settingRoutes = require('./routes/setting.route');
+const linkRouters= require('./routes/link.route');
 
 const testRoutes=require('./routes/test.route');
  
@@ -53,11 +54,15 @@ app.use('/api', entriesRoutes);
 app.use('/api', journalsRoutes);
 app.use('/api', AgentsRoutes);
 
+app.use('/api',linkRouters);
+
 app.use('/api',testRoutes);
 
-
-
 app.use('/', authrouter, helperrouter, settingRoutes)
+
+app.get('/',(req,res)=>{
+  res.send(`<p>working</p>`);
+})
 
 // Login 
 sequelize.authenticate().then(() => {
