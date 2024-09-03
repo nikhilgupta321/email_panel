@@ -11,6 +11,8 @@ import MailForm from "./components/MailForm";
 import Maillinks from "./components/Maillinks";
 import NotMail from "./components/NotMail";
 import User from "./components/User";
+import EmailFiles from "./components/EmailFiles";
+import EmailFilesAdd from "./components/EmailFilesAdd";
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
           <Route path="/email/maillinks" element={<Maillinks />} />
           <Route path="/email/notmail" element={<NotMail />} />
           <Route path="/email/user" element={<User />} />
+          <Route path="/email/emailfiles" element={<EmailFiles/>} />
+          <Route path="/email/emailfiles/add" element={<EmailFilesAdd/>} />
         </Route>
       </Routes>
     </div>

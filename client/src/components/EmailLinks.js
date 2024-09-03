@@ -8,8 +8,8 @@ const EmailLinks = () => {
 
   useEffect(() => {
     (async () => {
-      const res= await fetchData("http://localhost:8080/api/test");
-      console.log("email =  ",res)
+      const res= await fetchData(`http://localhost:8080/api/test1`);
+      // console.log("email =  ",res)
       setLists(res.object);
     })();
   }, []);

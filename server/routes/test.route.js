@@ -157,7 +157,7 @@ const obj2=[
 
 router.get("/test1", (req, res) => {
   return res.status(200).json({
-    success: "true",
+    success: true,
     message: "test route working fine",
     object,
   });
@@ -165,7 +165,7 @@ router.get("/test1", (req, res) => {
 
 router.get('/maillinks',(req,res)=>{
   return res.status(200).json({
-    success: "true",
+    success: true,
     message:"mailLinks working fine",
     obj2,
   })

@@ -49,7 +49,7 @@ const Card = () => {
         </Link>
         <Link
           className="p-4 border rounded shadow-lg flex bg-slate-500 justify-between"
-          to="/email/user"
+          to="/email/emailfiles"
         >
           <h5>Email Files</h5>
         </Link>

@@ -5,17 +5,20 @@ import { fetchData } from "../helper/fetchData";
 const NotMail = () => {
   const [lists, setLists] = useState([]);
 
+  const testFun=(e)=>{
+    const response=window.confirm("Do you really want to change") 
+  }
+
   useEffect(() => {
     (async () => {
-      const res = await fetchData("http://localhost:8080/api/test");
-      console.log("email =  ", res);
-      setLists(res.object);
+      const res = await fetchData("http://localhost:8080/api/getNotMails");
+      setLists(res.response);
     })();
   }, []);
 
   return (
-    <div className="overflow-hidden">
-      <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div className="">
+      <div className=" overflow-x-scroll sm:-mx-6 lg:-mx-8">
         <div className="inline-block  min-w-full py-2 sm:px-6 lg:px-8">
           <div className="bar-nav flex flex-col-1">
             <div className="mx-2">
@@ -485,85 +488,46 @@ const NotMail = () => {
               </button>{" "}
             </div>
           </div>
-          <table className="mt-2 min-w-full border text-left text-sm font-light dark:border-neutral-500">
+          <table className="mt-2 overflow-x-scroll border text-left text-sm font-light dark:border-neutral-500">
             <thead className="border-b font-medium dark:border-neutral-500">
               <tr>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   S.No
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4  dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4  dark:border-neutral-500">
                   Category
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4  dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4  dark:border-neutral-500">
                   Type
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Subject
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Country
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Link
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Last Update
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Update On
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Done
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Comment
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   IDM Working
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 dark:border-neutral-500">
                   Created By
                 </th>
-                <th
-                  scope="col"
-                  className="border-r px-6 py-4 bg-blue-500 text-white dark:border-neutral-500"
-                >
+                <th className="border-r px-6 py-4 bg-blue-500 text-white dark:border-neutral-500">
                   Created On
                 </th>
               </tr>
@@ -571,24 +535,29 @@ const NotMail = () => {
             <tbody>
               {lists.length > 0 &&
                 lists.map((list) => (
-                  <tr class="border-b dark:border-neutral-500">
+                  <tr class="border-b dark:border-neutral-500 ">
                     <td class="whitespace-nowrap border-r px-6 py-4 font-medium dark:border-neutral-500">
-                      {list.no}
+                      {list.id}
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      {list.Category}
+                      {list.category}
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      {list.Type}
+                      {list.type}
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      {list.Subject}
+                      {list.subject}
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      Russia
+                      {list.country}
                     </td>
-                    <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      https://www.vniigenjournal.ru/jour/issue/archive
+                    <td class=" border-r px-6 py-4 dark:border-neutral-500">
+                      <a
+                        href={list.link}
+                        className="flex w-[20vw] text-blue-600 "
+                      >
+                        {list.link}
+                      </a>
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
                       <input
@@ -624,6 +593,8 @@ const NotMail = () => {
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
                       <select
+                        value={list.idm_working}
+                        onChange={testFun}
                         className={`w-full border-2 border-gray-300 p-2 focus:outline-emerald-600 `}
                       >
                         <option value="No">No</option>
@@ -631,13 +602,14 @@ const NotMail = () => {
                       </select>
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      Nitin
+                      {list.created_by}
                     </td>
                     <td class="whitespace-nowrap  border-r px-6 py-4 dark:border-neutral-500">
-                      20-JUL-23
+                      {list.extract_on}
                     </td>
                   </tr>
                 ))}
+
               {/* <tr class="border-b dark:border-neutral-500">
                     <td class="whitespace-nowrap border-r px-6 py-4 font-medium dark:border-neutral-500">
                       2
