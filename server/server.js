@@ -15,6 +15,7 @@ const settingRoutes = require('./routes/setting.route');
 const linkRouters= require('./routes/link.route');
 const emailFileRoutes=require('./routes/emailFile.route');
 const notMailRouters=require('./routes/notMail.route')
+const emailStatusRoutes=require('./routes/email_status.route');
 
 const testRoutes=require('./routes/test.route');
  
@@ -57,6 +58,7 @@ app.use('/api', journalsRoutes);
 app.use('/api', AgentsRoutes);
 
 app.use('/api',linkRouters);
+app.use('/api',emailStatusRoutes)
 app.use('/api',emailFileRoutes);
 app.use('/api',notMailRouters);
 
